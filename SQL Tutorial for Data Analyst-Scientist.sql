@@ -2,34 +2,25 @@
 --------------------------------               SQL TUTORIAL FOR DATA ANALYST/SCIENTIST            ------------------
 -------------------------------------------------------------------------------------------------------------------
 
--- Created by: Yiannis Pitsillides
+-- Created by: Byunghun Lee
 
----------------------------------------------  Video 1  ----------------------------------------------
+---------------------------------------------   1  ----------------------------------------------
 -- Step 0: Download and instal SQL Server and SSMS. Create a new database
 -- Step 1: Load the raw data
 -- Step 2: SELECT query - Filtering - Conditions
 -- Step 3: WHERE CLAUSE with SubQueries
 
----------------------------------------------  Video 2  ----------------------------------------------
+---------------------------------------------   2  ----------------------------------------------
 -- Step 4: IFF & CASE Statement
 -- Step 5: Rename - Update - Replace - Insert Into - Delete from tables - New Column
 -- Step 6: Aggregated Funtions: SUM - AVERAGE - MIN - MAX - COUNT
 
 
----------------------------------------------  Video 3  ----------------------------------------------
+---------------------------------------------   3  ----------------------------------------------
 -- Step 7: JOINS & UNIONS
 
 
 
---------------------------------------
----- Shortcut Keys to know------------
---------------------------------------
-
--- CTRL + C = Copy
--- CTRL + X = Cut
--- CTRL + V = Paste
--- CTRL + Z = Undo / back
--- F5 in SQL = Run
 
 
 -------------------------------------------------------------------------------------------------------------------
@@ -355,7 +346,7 @@ ORDER BY MIN(GDP_$_per_capita)
 ----------------------------------           Step 6: JOINS & UNIONS             -----------------------------------
 -------------------------------------------------------------------------------------------------------------------
 
-------------------------------------------    Exm 1: LEFT JOIN   --------------------------------------------------
+------------------------------------------     1: LEFT JOIN   --------------------------------------------------
 
 -- 1. We need to SELECT the columns we need from the 2 or more tables we are going to JOIN
 -- 2. Need to identify the column(s) that are identical in each table so we can JOIN them
@@ -401,7 +392,7 @@ FROM
 GROUP BY b.Region
 ORDER BY SUM(a.Total_Home_Score) DESC
 
-------------------------------------------    Exm 2: FULL JOIN   --------------------------------------------------
+------------------------------------------    2: FULL JOIN   --------------------------------------------------
 
 SELECT a.Home_Team, b.Country, ISNULL(a.Home_Team, b.Country) AS Country_Comb,
 ISNULL(a.Total_Home_Score, 0) AS Total_Home_Score,
@@ -419,7 +410,7 @@ ORDER BY a.Total_Home_Score DESC
 --before: 78
 --after: 241
 
-------------------------------------------    Exm 3: INNER JOIN   --------------------------------------------------
+------------------------------------------     3: INNER JOIN   --------------------------------------------------
 
 SELECT a.Home_Team, a.Total_Home_Score, b.GDP_$_per_capita
 FROM 
@@ -435,7 +426,7 @@ ORDER BY a.Total_Home_Score DESC
 --afeter: 64
 
 
-------------------------------------------    Exm 4: CROSS JOIN   --------------------------------------------------
+------------------------------------------     4: CROSS JOIN   --------------------------------------------------
 
 SELECT a.Home_Team, b.Country, a.Total_Home_Score, b.GDP_$_per_capita
 FROM 
@@ -451,7 +442,7 @@ ORDER BY a.Total_Home_Score DESC
 --afeter: 17,706
 
 
-------------------------------------------    Exm 5: UNIONS   --------------------------------------------------
+------------------------------------------     5: UNIONS   --------------------------------------------------
 
 -- 1: Create the table
 
@@ -486,7 +477,7 @@ SELECT * FROM Football_Data_2021
 
 -- Total rows: 43,081
 
-------------------------------------------    Exm 7: CREATE A NEW VIEW   --------------------------------------------------
+------------------------------------------     7: CREATE A NEW VIEW   --------------------------------------------------
 
 CREATE VIEW Football_Data_2020_2021 AS
 
